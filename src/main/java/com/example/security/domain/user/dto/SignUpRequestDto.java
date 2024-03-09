@@ -1,8 +1,9 @@
 package com.example.security.domain.user.dto;
 
-import com.example.security.domain.user.entity.User;
-import com.example.security.domain.user.entity.Role;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -31,15 +32,5 @@ public class SignUpRequestDto {
 
     private String address;
 
-    public User toEntity() {
-        return User.builder()
-                .id(id)
-                .pwd(pwd)
-                .email(email)
-                .phone(phone)
-                .address(address)
-                .role(Role.USER)
-                .build();
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.example.security.domain.user.jwt;
 
+import com.example.security.domain.user.dto.TokenDto;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -30,7 +31,7 @@ public class TokenProvider {
     private final Key key;
 
     // 생성자
-    public TokenProvider(@Value("${jwt.secret.key}") String secretKey) {
+    public TokenProvider(@Value("${spring.security.jwt.secret.key}") String secretKey) {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }

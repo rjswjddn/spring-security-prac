@@ -1,18 +1,13 @@
-package com.example.security.domain.user.jwt;
+package com.example.security.domain.user.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TokenDto {
-    private String grantType;
+public class TokenRequestDto {
     private String accessToken;
-    private Long accessTokenExpiresIn;
     private String refreshToken;
-
 }

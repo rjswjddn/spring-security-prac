@@ -4,12 +4,12 @@ import com.example.security.domain.user.jwt.JwtAccessDeniedHandler;
 import com.example.security.domain.user.jwt.JwtAuthenticationEntryPoint;
 import com.example.security.domain.user.jwt.TokenProvider;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -25,7 +25,8 @@ import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 @EnableWebSecurity
 @Configuration
 @RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfiguration {
+@Slf4j
+public class SecurityConfig{
 
     private final TokenProvider tokenProvider;
     private final CorsFilter corsFilter;
